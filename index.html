@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido para a Koii</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fad6ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+        }
+        h1 {
+            font-size: 3em;
+            color: #333;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button#yes {
+            background-color: #28a745;
+            color: white;
+        }
+        button#yes:hover {
+            background-color: #218838;
+        }
+        button#no {
+            background-color: #dc3545;
+            color: white;
+            position: relative; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quer casar comigo? 🌹🌹👰🤵</h1>
+        <div class="buttons">
+            <button id="yes">Sim</button>
+            <button id="no">Não</button>
+        </div>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('no');
+        const yesButton = document.getElementById('yes');
+
+        noButton.addEventListener('mouseenter', () => {
+            const buttonWidth = noButton.offsetWidth;
+            const buttonHeight = noButton.offsetHeight;
+
+
+            const maxX = (window.innerWidth - buttonWidth) * 0.4; 
+            const maxY = (window.innerHeight - buttonHeight) * 0.4; 
+
+            const randomX = Math.random() * maxX + (window.innerWidth * 0.4); 
+            const randomY = Math.random() * maxY + (window.innerHeight * 0.4); 
+
+            noButton.style.position = "absolute";
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        });
+
+        yesButton.addEventListener('click', () => {
+            document.body.innerHTML = `
+                <div style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; text-align: center;">
+                    <h1 style="font-size: 3em; color: #333;">EU SABIA QUE VOCÊ NÃO IRIA RESISTIR!!! 🎉</h1>
+                    <p style="font-size: 1.5em; color: #555;">AGORA NÃO TEM MAIS VOLTA❤️❤️❤️</p>
+                    <p style="font-size: 1.2em; color: #777;">VAI SER MINHA PRA SEMPRE 😁😁😀😀 MUAHAHAAH</p>
+                </div>`;
+
+        });
+    </script>
+</body>
+</html>
