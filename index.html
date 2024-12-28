@@ -53,6 +53,11 @@
     </style>
 </head>
 <body>
+    <audio id="background-music" autoplay loop>
+        <source src="audio/musica.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
     <div class="container">
         <h1>Quer casar comigo? 🌹🌹👰🤵</h1>
         <div class="buttons">
@@ -68,7 +73,6 @@
         noButton.addEventListener('mouseenter', () => {
             const buttonWidth = noButton.offsetWidth;
             const buttonHeight = noButton.offsetHeight;
-
 
             const maxX = (window.innerWidth - buttonWidth) * 0.4; 
             const maxY = (window.innerHeight - buttonHeight) * 0.4; 
