@@ -7,6 +7,7 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -50,12 +51,31 @@
             color: white;
             position: relative; 
         }
+        #audioElement {
+            display: none; /* Oculta o áudio inicialmente */
+        }
+        .gif-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        .gif {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+        }
+        #gifContainer {
+            display: none; /* Oculta os GIFs inicialmente */
+            flex-direction: column;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
-    <audio id="background-music" autoplay loop>
-        <source src="audio/musica.mp3" type="audio/mpeg">
-        Seu navegador não suporta o elemento de áudio.
+    <audio id="audioElement" controls>
+        <source src="audio/musica.wav.wav" type="audio/x-wav">
+        Seu navegador não suporta áudio.
     </audio>
 
     <div class="container">
@@ -66,9 +86,27 @@
         </div>
     </div>
 
+    <!-- Contêiner para os GIFs -->
+    <div id="gifContainer">
+        <!-- Linha de GIFs superior -->
+        <div class="gif-row">
+            <img src="gifs/gif1.gif" alt="GIF 1" class="gif">
+            <img src="gifs/gif2.gif" alt="GIF 2" class="gif">
+            <img src="gifs/gif3.gif" alt="GIF 3" class="gif">
+        </div>
+        <!-- Linha de GIFs inferior -->
+        <div class="gif-row">
+            <img src="gifs/gif4.gif" alt="GIF 4" class="gif">
+            <img src="gifs/gif5.gif" alt="GIF 5" class="gif">
+            <img src="gifs/gif6.gif" alt="GIF 6" class="gif">
+        </div>
+    </div>
+
     <script>
         const noButton = document.getElementById('no');
         const yesButton = document.getElementById('yes');
+        const audio = document.getElementById('audioElement');
+        const gifContainer = document.getElementById('gifContainer');
 
         noButton.addEventListener('mouseenter', () => {
             const buttonWidth = noButton.offsetWidth;
@@ -86,6 +124,13 @@
         });
 
         yesButton.addEventListener('click', () => {
+            // Exibe os controles do áudio
+            audio.style.display = "block";
+
+            // Exibe os GIFs
+            gifContainer.style.display = "flex";
+
+            // Adiciona mensagem na página
             document.body.innerHTML = `
                 <div style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; text-align: center;">
                     <h1 style="font-size: 3em; color: #333;">EU SABIA QUE VOCÊ NÃO IRIA RESISTIR!!! 🎉</h1>
@@ -93,6 +138,9 @@
                     <p style="font-size: 1.2em; color: #777;">VAI SER MINHA PRA SEMPRE 😁😁😀😀 MUAHAHAAH</p>
                 </div>`;
 
+            // Adiciona o áudio e os GIFs no final
+            document.body.appendChild(audio);
+            document.body.appendChild(gifContainer);
         });
     </script>
 </body>
